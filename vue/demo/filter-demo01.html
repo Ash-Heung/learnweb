@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <span>
+            {{date | format('yyyy-MM-dd')}}
+        </span>
+    </div>
+</body>
+<script src="../lib/vue.js"></script>
+<script>
+    Vue.filter('format',function(val, arg){
+        return val.getFullYear() + '-' + (val.getMonth() + 1) + '-' +val.getDate();
+    })
+    new Vue({
+        el: '#app',
+        data: {
+            date: new Date(),
+            checkRes: ''
+        },
+        // 监听实现
+        watch: {
+
+        }, 
+        computed: {
+            
+        },     
+    })
+</script>
+</html>

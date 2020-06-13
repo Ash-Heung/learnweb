@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+            <div v-for='(v,k,i) in obj'>
+                {{v+'----'+k+'----'+i}}
+            </div>
+    </div>
+</body>
+<script src="../lib/vue.js"></script>
+<script>
+    var obj = {
+        "mame": "lisi",
+        "gender": "male",
+        "age": 12 
+    }
+    new Vue({
+          el: "#app",
+        data: {
+            obj: {
+                "mame": "lisi",
+                "gender": "male",
+                "age": 12 
+            }
+        },
+    })
+</script>
+</html>

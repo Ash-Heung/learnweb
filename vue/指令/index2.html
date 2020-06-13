@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>插值表达式</title>
+    
+</head>
+<body>
+    <div id="app">
+            我是一个{{major}}工程师
+           {{sayHey()}}
+           <br/>
+           <button @click='sayHi()' >hello</button>
+
+    </div>
+</body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: "#app",
+        data() {
+            return {
+                major: 'web'
+            }
+        },
+        methods: {
+            sayHey:function(){
+                return "hello"
+            },
+            sayHi:function(){
+                alert("hello")
+            },
+        },
+    });
+</script>

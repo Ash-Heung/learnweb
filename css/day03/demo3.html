@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>行内元素转换块级元素</title>
+    <style>
+        span {
+            display: block;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .bc {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    
+    <span>行级元素</span>
+
+    <hr>
+
+    <div class="bc">块级元素</div>
+    <div class="bc">块级元素</div>
+    <div class="bc">块级元素</div>
+</body>
+</html>

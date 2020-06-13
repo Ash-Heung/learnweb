@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h4>{{msg}}</h4>
+
+        <input type="button" value="动起来" @click='lang()'>
+        <input type="button" value="停止" @click='stop()'>
+    </div>
+</body>
+<script src="../lib/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data() {
+            return {
+                msg: '猥琐发育，别浪~~~'
+            }
+        },
+        methods: {
+            lang(){
+                console.log(this.msg)
+                var start = this.msg.substring(0,1)
+                var end = this.msg.substring(1)
+                this.msg = end + start
+            },
+            stop(){
+
+            }
+        },
+    })
+
+</script>
+</html>

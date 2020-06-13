@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{ 
+            border-collapse:collapse; 
+            width: 500px;
+            height: auto;
+        } 
+        table,th, td { 
+            border: 1px solid black; 
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+
+        <div>
+            <label for="编号"></label>
+            <input type="text" v-model='id' :disabled=disable>
+            <label for="书名"></label>
+            <input type="text" v-model='name'>
+            <input type="button" value="提交" @click="submit">
+        </div>
+        
+        <table>
+            <caption>图书管理系统</caption>
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>名称</th>
+                    <th>时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr :key="item.id" v-for="item in bookList">
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.date }}</td>
+                    <td>
+                        <a href="#" @click.prevent=edit(item.id)>修改</a>
+                        <span>|</span>
+                        <a href="#" @click.prevent=deleteBook(item.id)>删除</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+       
+    </div>
+</body>
+<script src="../lib/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            id: '',
+            name: '',
+            disable: false,
+            bookList: [
+                {
+                    id: 1,
+                    name: "三国演义",
+                    date: '2020-06-01'
+                },
+                {
+                    id: 2,
+                    name: "水浒传",
+                    date: '2020-06-02'
+                },
+                {
+                    id: 3,
+                    name: "西游记",
+                    date: '2020-06-03'
+                },
+                {
+                    id: 4,
+                    name: "红楼梦",
+                    date: '2020-06-04'
+                },
+            ]
+        },
+        // 监听实现
+        methods: {
+            // 添加图书
+            submit: function(){
+
+                if(this.disable){
+                    //编辑
+                    this.bookList.some((item) =>{
+                        if(item.id == this.id){
+                            item.name = this.name
+                            return true;
+                        }
+                    })
+                    this.disable = false
+                }else{
+                    var book = {};
+                    book.id = this.id;
+                    book.name = this.name;
+                    book.date = '2020-05-05'
+            
+                    this.bookList.push(book);
+                    //清空元数据
+                    this.id = '';
+                    this.name = '';
+                }
+              
+            },
+            edit: function(id){
+                this.disable = true;
+                var book = this.bookList.filter(function(item){
+                    return item.id == id;
+                });
+    
+                this.id = book[0].id;
+                this.name = book[0].name;
+            },
+            deleteBook: function(id){
+                //根据索引删除
+                // var index = this.bookList.findIndex(function(item){
+                //     return item.id == id;
+                // });
+                // this.bookList.splice(index, 1)
+                //通过过滤器删除
+                this.bookList = this.bookList.filter(function(item) {
+                    return item.id != id;
+                })
+            }
+        },    
+    })
+</script>
+</html>

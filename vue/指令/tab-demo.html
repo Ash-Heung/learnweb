@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab li {
+            display: inline-block;
+         
+            
+            padding: 0, 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="tab">
+            <ul>
+                <li v-for='(item, index) in list'>{{ item.name }}</li>
+            </ul>
+            <div class="current" v-for='(item, index) in list'>
+                <span v-model>{{item.desc}}</span>
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script src="../lib/vue.js"></script>
+<script>
+    var obj = {
+        "mame": "lisi",
+        "gender": "male",
+        "age": 12 
+    }
+    new Vue({
+        el: "#app",
+        data: {
+            list: [
+                {
+                    "id": 1,
+                    "name": "apple",
+                    "desc": "im apple"
+                },{
+                    "id": 2,
+                    "name": "orange",
+                    "desc": "im orange"
+                },{
+                    "id": 3,
+                    "name": "lemen",
+                    "desc": "im apple"
+                }
+            ]
+        },
+        methods: {
+            
+        },
+    })
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+            <input type="text" v-model='uname'>
+            <span>{{checkRes}}</span>
+    </div>
+</body>
+<script src="../lib/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            uname: 'Jim',
+            checkRes: ''
+        },
+        // 监听实现
+        watch: {
+            uname: function(val){
+                if(5 > val.length ){
+                    this.checkRes = "用户名应该大于5个字符"
+                }else{
+                    this.checkRes = "用户名正常使用"
+                }
+            }
+        }, 
+        computed: {
+            
+        },     
+    })
+</script>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学成网</title>
+    <style>
+        /* 清除内外边距 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        /* 清除浮动 */
+        .clearfix:before, .clearfix:after{
+            display: table;
+            content: "";
+        }
+        .clearfix:after{
+            clear: both;
+        }
+        .clearfix {
+            *zoom: 1;
+        }
+        a {
+            color: #050505;
+            text-decoration: none;
+        }
+        input {
+			border: 0;  /* 所有的表单边框为0 */
+			box-sizing: border-box; /* CSS3盒子模型 border 和 padding 都包含到 width 里面去 */
+		}
+        body {
+            background-color: #f3f5f7;
+        }
+        header {
+            height: 100px;
+            /* background-color: pink; */
+            overflow: hidden;
+        }
+        nav {
+            width: 1366px;
+            height: 42px;
+            margin: 26px auto;
+        }
+        .logo {
+            float: left;
+        }
+        .navbar {
+            margin-left: 50px;
+            float: left;
+            height: 42px;
+            line-height: 42px;
+        }
+        .navbar li {
+            float: left; /*让首页，课程，职业规划一行*/
+        }
+        .navbar li a{
+            padding: 0 8px;
+            display: block; /*a是行内元素，设置高需要转成块级元素*/
+            height: 42px;
+        }
+        .navbar li a:hover {
+            border-bottom: 1px solid #00a4ff; 
+        }
+        .search {
+            width: 410px;
+            height: 38px;
+            border: 1px solid #00a4ff;
+            float: left;  
+        }
+        .search input[type=text] {
+            width: 360px;
+            height: 38px;
+            padding-left: 20px;
+            float: left;
+        }
+        .search input[type=submit] {
+            width: 50px;
+            height: 38px;
+            float: left;
+            background: #00a4ff url(images/search_06.png) center center no-repeat; 
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部部分 --> 
+    <header>
+        <nav>
+            <!-- 导航栏部分 -->
+            <div class="logo">
+                <img src="./images/logo_03.png" alt="学成网">
+            </div>
+            <!-- 导航栏部分 -->
+            <div class="navbar">
+                <ul>
+                    <li>
+                        <a href="">首页</a>
+                    </li>
+                    <li>
+                        <a href="">课程</a>
+                    </li>
+                    <li>
+                        <a href="">职业规划</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- 搜索框部分 -->
+            <div class="search">
+                <form action="">
+                    <input type="text" placeholder="请输入关键字" >
+                    <input type="submit" value="">
+                </form>
+            </div>
+        </nav>
+    </header>
+</body>
+</html>
